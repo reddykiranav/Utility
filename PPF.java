@@ -35,21 +35,21 @@ public class PPF {
 		int end = 12;//month.valueOf(endMonth).getNumVal();
 
 		System.out.println("\tinitial amount : " + amount + "\n");
-
+		float interestamount = 0;
 		for(int i=start;i<=end;i++){
 			 	amount = amount + addcurrentmonthAmt(i,monthAmountMap);
 			if(i<=3){
-				amount += ((amount * interestRateQ1)/100)/12;	
+				interestamount += ((amount * interestRateQ1)/100)/12;	
 			}else if(i<=6){
-				amount += ((amount * interestRateQ2)/100)/12;
+				interestamount += ((amount * interestRateQ2)/100)/12;
 			}else if(i<=9){
-				amount += ((amount * interestRateQ3)/100)/12;
+				interestamount += ((amount * interestRateQ3)/100)/12;
 			}else{
-				amount += ((amount * interestRateQ4)/100)/12;
+				interestamount += ((amount * interestRateQ4)/100)/12;
 			}	
-			System.out.println("amount at the end of " + i + " month " + amount );
+			System.out.println("interest amount at the end of " + i + " month " + interestamount );
 		}
-
+		amount += interestamount;
 		System.out.println("\n\n\t final amount : " + amount);
 
 
